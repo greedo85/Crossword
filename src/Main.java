@@ -12,8 +12,6 @@ public class Main {
     char menuChoice;
     Scanner scanner = new Scanner(System.in);
     CrossWord crossWord=new CrossWord(6,3);
-
-
     public static void main( String[] args ) {
         System.out.println("Wylosuj zadanie: 1, 2, 3");
         Main main=new Main();
@@ -35,7 +33,23 @@ public class Main {
         }
             while((!(menuChoice != 'q') || (menuChoice =='d')));
     }
+    public void setRandomTask()
+    {
+        randomNumber = random.nextInt(3);
+        switch (randomNumber) {
+            case 0:
+                crossWord.playCrossword();
+                break;
+            case 1:
+            howManyPrimeNumber();
+                break;
+            case 2:
+                inputPrimeNumbers();
+                break;
+        }
+    }
 
+    /*-----------------------------------------------------------------------------------------------------*/
     public boolean inputPrimeNumbers() {
         try {
             System.out.println("Wpisz 3 liczby pierwsze:");
@@ -80,21 +94,7 @@ public class Main {
         }
     }
 
-    public void setRandomTask()
-    {
-        randomNumber = random.nextInt(1);
-        switch (randomNumber) {
-            case 0:
-                crossWord.playCrossword();
-                break;
-            case 1:
-                howManyPrimeNumber();
-                break;
-            case 2:
-                inputPrimeNumbers();
-                break;
-        }
-    }
+
     public boolean isNumberPrime(int liczba) {
         boolean check = true;
         if (liczba <= 1) {
