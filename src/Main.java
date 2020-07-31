@@ -41,10 +41,16 @@ public class Main {
                 crossWord.playCrossword();
                 break;
             case 1:
-            howManyPrimeNumber();
+                do {
+                    howManyPrimeNumber();
+                }
+                while(!howManyPrimeNumber());
                 break;
             case 2:
-                inputPrimeNumbers();
+                do {
+                    inputPrimeNumbers();
+                }
+                while (!inputPrimeNumbers());
                 break;
         }
     }
@@ -58,7 +64,7 @@ public class Main {
             liczba3 = scanner.nextInt();
             System.out.println("poda³eœ: " + liczba1 + " " + liczba2 + " " + liczba3);
             if (!(isNumberPrime(liczba1)) || !(isNumberPrime(liczba2)) || !isNumberPrime(liczba3)) {
-                System.out.println("Poda³eœ z³e liczbny");
+                System.out.println("Poda³eœ z³e liczby");
                 return false;
             } else {
                 System.out.println("Wygra³eœ, poda³eœ: " + liczba1 + " " + liczba2 + " " + liczba3);
@@ -82,18 +88,16 @@ public class Main {
             }
             System.out.print(liczba+", ");
         }
-        System.out.println("Licznik: " + counter);
+        //System.out.println("Licznik: " + counter);
         int userChoice = scanner.nextInt();
         if (userChoice == counter) {
             System.out.println("Wygra³eœ");
             return true;
         } else {
             System.out.println("Spróbuj jeszcze raz");
-            howManyPrimeNumber();
             return false;
         }
     }
-
 
     public boolean isNumberPrime(int liczba) {
         boolean check = true;

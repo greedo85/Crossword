@@ -38,7 +38,6 @@ public class CrossWord {
                     typeAnswer(0, 1);
                     printCrossword(userArray);
                     checkPassword(0, 1);
-
                     break;
 
                 case 2:
@@ -101,9 +100,14 @@ public class CrossWord {
     }
 
     public void printCrossword( char someArray[][] ) {
-        System.out.println("    1  2  3");
+        System.out.println("      2  ");
         for (int i = 0; i < someArray.length; i++) {
-            System.out.print((i + 1) + " ");
+            if(i==1||i==3) {
+                System.out.print((i + 1) + " ");
+            }
+            else {
+                System.out.print("  ");
+            }
             for (int j = 0; j < someArray[i].length; j++) {
                 System.out.print("[" + someArray[i][j] + "]");
             }
@@ -119,6 +123,7 @@ public class CrossWord {
                 }
             }
         }
+        System.out.println("Rozwi¹zana poprawnie");
         return true;
     }
 }
