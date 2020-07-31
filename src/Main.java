@@ -12,6 +12,8 @@ public class Main {
     char menuChoice;
     Scanner scanner = new Scanner(System.in);
     CrossWord crossWord=new CrossWord(6,3);
+
+
     public static void main( String[] args ) {
         System.out.println("Wylosuj zadanie: 1, 2, 3");
         Main main=new Main();
@@ -33,29 +35,7 @@ public class Main {
         }
             while((!(menuChoice != 'q') || (menuChoice =='d')));
     }
-    public void setRandomTask()
-    {
-        randomNumber = random.nextInt(3);
-        switch (randomNumber) {
-            case 0:
-                crossWord.playCrossword();
-                break;
-            case 1:
-                do {
-                    howManyPrimeNumber();
-                }
-                while(!howManyPrimeNumber());
-                break;
-            case 2:
-                do {
-                    inputPrimeNumbers();
-                }
-                while (!inputPrimeNumbers());
-                break;
-        }
-    }
 
-    /*-----------------------------------------------------------------------------------------------------*/
     public boolean inputPrimeNumbers() {
         try {
             System.out.println("Wpisz 3 liczby pierwsze:");
@@ -64,7 +44,7 @@ public class Main {
             liczba3 = scanner.nextInt();
             System.out.println("poda³eœ: " + liczba1 + " " + liczba2 + " " + liczba3);
             if (!(isNumberPrime(liczba1)) || !(isNumberPrime(liczba2)) || !isNumberPrime(liczba3)) {
-                System.out.println("Poda³eœ z³e liczby");
+                System.out.println("Poda³eœ z³e liczbny");
                 return false;
             } else {
                 System.out.println("Wygra³eœ, poda³eœ: " + liczba1 + " " + liczba2 + " " + liczba3);
@@ -88,17 +68,33 @@ public class Main {
             }
             System.out.print(liczba+", ");
         }
-        //System.out.println("Licznik: " + counter);
+        System.out.println("Licznik: " + counter);
         int userChoice = scanner.nextInt();
         if (userChoice == counter) {
             System.out.println("Wygra³eœ");
             return true;
         } else {
             System.out.println("Spróbuj jeszcze raz");
+            howManyPrimeNumber();
             return false;
         }
     }
 
+    public void setRandomTask()
+    {
+        randomNumber = random.nextInt(1);
+        switch (randomNumber) {
+            case 0:
+                crossWord.playCrossword();
+                break;
+            case 1:
+                howManyPrimeNumber();
+                break;
+            case 2:
+                inputPrimeNumbers();
+                break;
+        }
+    }
     public boolean isNumberPrime(int liczba) {
         boolean check = true;
         if (liczba <= 1) {
